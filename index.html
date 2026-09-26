@@ -2,741 +2,340 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Why knot? — уютная кофейня в сердце Минска. Спешелти-кофе, домашние десерты, тёплая атмосфера.">
-  <title>Why knot? — кофейня в Минске</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Фавиконка (эмодзи-кофе в SVG) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <title>Vidna — разработка сайтов и веб-приложений для бизнеса</title>
+  <meta name="description" content="Студия Vidna: создаём современные, быстрые и конверсионные сайты для бизнеса — от структуры и дизайна до баз данных и запуска. Стек: HTML, CSS, JavaScript, Supabase.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c0d0f">
 
-  <!-- Шрифты: Playfair Display (заголовки) + Inter (текст) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9ff55'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='32' font-weight='800' text-anchor='middle' fill='%230c0d0f'%3EV%3C/text%3E%3C/svg%3E">
+
+  <!-- Шрифты: Manrope (заголовки) + DM Sans (текст) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- ============================================================
-       1. ХЕДЕР (фиксированный, полупрозрачный)
-       ============================================================ -->
-  <header class="header" id="header">
-    <div class="container header__inner">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-      <!-- Логотип -->
-      <a href="#hero" class="logo">Why knot<span>?</span></a>
-
-      <!-- Навигация (на мобильных — выезжающая панель) -->
-      <nav class="nav" id="nav" aria-label="Основная навигация">
-        <a href="#hero"     class="nav__link nav__link--active">Главная</a>
-        <a href="#menu"     class="nav__link">Меню</a>
-        <a href="#about"    class="nav__link">О нас</a>
-        <a href="#reviews"  class="nav__link">Отзывы</a>
-        <a href="#contacts" class="nav__link">Контакты</a>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="Студия Vidna, на главную">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        Vidna
+      </a>
+      <nav class="top-nav" aria-label="Основная навигация">
+        <a href="#portfolio">Работы</a>
+        <a href="#services">Возможности</a>
+        <a href="#process">Как работаю</a>
+        <a href="#contacts">Контакты</a>
       </nav>
-
-      <div class="header__actions">
-        <!-- Кнопка личного кабинета -->
-        <button class="btn btn--account" id="accountBtn" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
-          <span id="accountBtnLabel">Личный кабинет</span>
-        </button>
-
-        <!-- Бургер (только мобильные) -->
-        <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
-    <!-- ============================================================
-         2. ГЕРОЙ-СЕКЦИЯ
-         ============================================================ -->
-    <section class="hero" id="hero">
-      <div class="hero__content">
-        <span class="hero__tagline">спешелти-кофейня · Минск</span>
-        <h1 class="hero__title">Why knot?</h1>
-        <p class="hero__slogan">Кофе, завязанный на вкусе. Узелок тепла посреди города — спешелти-зерно, домашние десерты и медленные утра.</p>
-        <a href="#menu" class="btn btn--gold">Посмотреть меню</a>
-      </div>
-      <a href="#menu" class="hero__scroll" aria-label="Прокрутить к меню">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-      </a>
-    </section>
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-label="Главный экран">
+      <span class="hero-bg-shape hero-bg-shape--one" aria-hidden="true"></span>
+      <span class="hero-bg-shape hero-bg-shape--two" aria-hidden="true"></span>
 
-    <!-- ============================================================
-         3. МЕНЮ (карточки + фильтр категорий)
-         ============================================================ -->
-    <section class="section menu" id="menu">
       <div class="container">
-        <div class="section__head" data-animate>
-          <span class="section__tag">Меню</span>
-          <h2 class="section__title">Любимые вкусы гостей</h2>
-          <p class="section__subtitle">Обжариваем зерно малыми партиями, десерты печём каждое утро</p>
-        </div>
-
-        <!-- Табы-фильтры категорий -->
-        <div class="menu__tabs" role="tablist" data-animate>
-          <button class="menu__tab menu__tab--active" data-category="all"      type="button">Всё меню</button>
-          <button class="menu__tab" data-category="coffee"    type="button">Кофе</button>
-          <button class="menu__tab" data-category="tea"       type="button">Чай</button>
-          <button class="menu__tab" data-category="dessert"   type="button">Десерты</button>
-          <button class="menu__tab" data-category="breakfast" type="button">Завтраки</button>
-        </div>
-
-        <!-- Сетка карточек (data-category / data-name / data-price используются в JS) -->
-        <div class="menu__grid" id="menuGrid">
-
-          <!-- КОФЕ -->
-          <article class="menu-card" data-category="coffee" data-name="Капучино «Классик»" data-price="7.50">
-            <img class="menu-card__img" src="images/капучино.jpg" alt="Капучино с latte-артом" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Капучино «Классик»</h3>
-              <p class="menu-card__desc">Плотная пенка, шоколадные ноты бленда и молоко фермерского хозяйства</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">7.50 BYN</span>
-                <span class="menu-card__tag">Кофе</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="coffee" data-name="Раф «Солёная карамель»" data-price="9.00">
-            <img class="menu-card__img" src="images/раф.jpg" alt="Раф кофе с карамелью" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Раф «Солёная карамель»</h3>
-              <p class="menu-card__desc">Сливочный, обволакивающий, с домашней карамелью и щепоткой морской соли</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">9.00 BYN</span>
-                <span class="menu-card__tag">Кофе</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="coffee" data-name="Эспрессо «Бленд №1»" data-price="5.00">
-            <img class="menu-card__img" src="images/экспрессо.png" alt="Чашка эспрессо" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Эспрессо «Бленд №1»</h3>
-              <p class="menu-card__desc">Бразилия + Эфиопия: какао, орех и цитрус в коротком глотке</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">5.00 BYN</span>
-                <span class="menu-card__tag">Кофе</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- ЧАЙ -->
-          <article class="menu-card" data-category="tea" data-name="Облепиховый с имбирём" data-price="8.50">
-            <img class="menu-card__img" src="images/oblepihovyi-chai-6.jpg" alt="Чайник и чашка чая" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Облепиховый с имбирём</h3>
-              <p class="menu-card__desc">Согревающий чайник на двоих: облепиха, имбирь, мёд и розмарин</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">8.50 BYN</span>
-                <span class="menu-card__tag">Чай</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="tea" data-name="Марокканский мятный" data-price="7.50">
-            <img class="menu-card__img" src="images/img.jfif" alt="Заваривание марокканского чая" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Марокканский мятный</h3>
-              <p class="menu-card__desc">Ганпаудер и свежая мята, заваренные по классическому ритуалу</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">7.50 BYN</span>
-                <span class="menu-card__tag">Чай</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="tea" data-name="Молочный улун" data-price="8.00">
-            <img class="menu-card__img" src="images/улун.jpg" alt="Светлый чай в стеклянной чашке" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Молочный улун</h3>
-              <p class="menu-card__desc">Нежный сливочный профиль с цветочным послевкусием. Подаём в стекле</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">8.00 BYN</span>
-                <span class="menu-card__tag">Чай</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- ДЕСЕРТЫ -->
-          <article class="menu-card" data-category="dessert" data-name="Круассан миндальный" data-price="6.50">
-            <img class="menu-card__img" src="images/крусассан.jpg" alt="Свежий круассан" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Круассан миндальный</h3>
-              <p class="menu-card__desc">Слоёный, хрустящий, с франжипаном и лепестками миндаля</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">6.50 BYN</span>
-                <span class="menu-card__tag">Десерт</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="dessert" data-name="Тирамису в стакане" data-price="11.00">
-            <img class="menu-card__img" src="images/tiramisu-v-stakane-867x1300.jpg" alt="Тирамису в стакане" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Тирамису в стакане</h3>
-              <p class="menu-card__desc">Маскарпоне, савоярди, пропитанные нашим эспрессо, и какао</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">11.00 BYN</span>
-                <span class="menu-card__tag">Десерт</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="dessert" data-name="Клубничный торт" data-price="10.50">
-            <img class="menu-card__img" src="images/tort-klubnichnyj-poceluj.jpg" alt="Кусочек торта с клубникой" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Клубничный торт</h3>
-              <p class="menu-card__desc">Бисквит на топлёном масле, крем-чиз и сезонная клубника</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">10.50 BYN</span>
-                <span class="menu-card__tag">Десерт</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- ЗАВТРАКИ -->
-          <article class="menu-card" data-category="breakfast" data-name="Тост с авокадо" data-price="12.00">
-            <img class="menu-card__img" src="images/avokado-tost-s-glazuney.jpg" alt="Тост с авокадо и яйцом" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Тост с авокадо</h3>
-              <p class="menu-card__desc">Зерновой хлеб, крем из авокадо, яйцо пашот и микрозелень</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">12.00 BYN</span>
-                <span class="menu-card__tag">Завтрак</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="breakfast" data-name="Панкейки с ягодами" data-price="11.50">
-            <img class="menu-card__img" src="images/панкейки.jpg" alt="Панкейки с ягодами" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Панкейки с ягодами</h3>
-              <p class="menu-card__desc">Пышные панкейки, кленовый сироп и ягоды с местного рынка</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">11.50 BYN</span>
-                <span class="menu-card__tag">Завтрак</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="breakfast" data-name="Завтрак «Why knot?»" data-price="16.00">
-            <img class="menu-card__img" src="images/100-295.jpg" alt="Полноценный завтрак на тарелке" loading="lazy">
-            <div class="menu-card__body">
-              <h3 class="menu-card__title">Завтрак «Why knot?»</h3>
-              <p class="menu-card__desc">Скрэмбл, тосты, авокадо, томаты и напиток на выбор — до 12:00</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">16.00 BYN</span>
-                <span class="menu-card__tag">Завтрак</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         4. О НАС (две колонки + анимация при скролле)
-         ============================================================ -->
-    <section class="section about" id="about">
-      <div class="container about__grid">
-
-        <div class="about__text" data-animate>
-          <span class="section__tag">О нас</span>
-          <h2 class="section__title section__title--left">Начали с одного узелка</h2>
-          <p>«Why knot?» родился в 2019 году из маленькой обжарочной мастерской на Зыбицкой. Название — наша улыбка: каждый пакет зерна мы буквально завязываем узлом, а каждый гость становится частью тёплой компании.</p>
-          <p>Сегодня это кофейня полного цикла: сами обжариваем зерно, сами печём десерты и сами учим бариста слышать гостя. У нас нет случайных рецептов — только то, что мы любим сами.</p>
-          <p>Приходите за медленным утром, рабочим днём у окна или вечером с десертом — мы оставим для вас место и тёплую чашку.</p>
-
-          <div class="about__stats">
-            <div class="stat"><span class="stat__num">7</span><span class="stat__label">лет с вами</span></div>
-            <div class="stat"><span class="stat__num">480k</span><span class="stat__label">чашек кофе</span></div>
-            <div class="stat"><span class="stat__num">12</span><span class="stat__label">сортов зерна</span></div>
+        <div class="hero-top reveal">
+          <div class="hero-top-left">
+            <span class="hero-name">Vidna</span>
+            <span class="hero-role">Web Developers</span>
+          </div>
+          <div class="hero-top-right">
+            <span class="hero-location">Минск · Беларусь</span>
+            <span class="hero-available"><i aria-hidden="true"></i>Открыты для проектов</span>
           </div>
         </div>
 
-        <div class="about__media" data-animate style="--d:.15s">
-          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=70" alt="Интерьер кофейни Why knot?" loading="lazy">
-        </div>
+        <div class="hero-content">
+          <h1 class="hero-title reveal">
+  <strong>Ваш</strong> <span>бизнес</span> заслуживает сайт,
+  <span>который</span> продаёт<span>, а не просто существует.</span>
+</h1>
+          <div class="hero-bottom">
+            <p class="hero-description reveal reveal-delay-1">
+              Мы — команда, которая берёт весь путь на себя: от первой идеи до сайта, который приносит вам клиентов каждый день.
+            </p>
+            <div class="hero-actions reveal reveal-delay-2">
+              <a class="button button--primary" href="#portfolio">
+                Посмотреть работы
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button--text" href="#contacts">Обсудить проект</a>
+            </div>
+          </div>
 
+          <!-- Мини-полоса компетенций. ВНИМАНИЕ: текст пункта 01 восстановлен — проверь его -->
+          <div class="hero-services reveal reveal-delay-3" aria-label="Ключевые направления работы">
+            <div class="hero-service">
+              <span class="hero-service-number" aria-hidden="true">01</span>
+              <p class="hero-service-title">Дизайн</p>
+              <p class="hero-service-text">Стиль, сетка и типографика</p>
+            </div>
+            <div class="hero-service">
+              <span class="hero-service-number" aria-hidden="true">02</span>
+              <p class="hero-service-title">Интерактив</p>
+              <p class="hero-service-text">Анимации, формы и динамика</p>
+            </div>
+            <div class="hero-service">
+              <span class="hero-service-number" aria-hidden="true">03</span>
+              <p class="hero-service-title">Данные</p>
+              <p class="hero-service-text">Supabase и подключение сервисов</p>
+            </div>
+            <div class="hero-service">
+              <span class="hero-service-number" aria-hidden="true">04</span>
+              <p class="hero-service-title">Запуск</p>
+              <p class="hero-service-text">Домен, сервер и размещение</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         5. УСЛУГИ (4 карточки с золотыми иконками)
-         ============================================================ -->
-    <section class="section services" id="services">
+    <!-- ================= PORTFOLIO ================= -->
+    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-title">
       <div class="container">
-        <div class="section__head" data-animate>
-          <span class="section__tag">Услуги</span>
-          <h2 class="section__title">Больше, чем кофе</h2>
-          <p class="section__subtitle">Четыре причины заглянуть к нам сегодня</p>
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h2 id="portfolio-title">Вот что <span>уже работает</span> на наших клиентов.</h2>
+          </div>
+          <p class="section-note">05 проектов</p>
         </div>
 
-        <div class="services__grid">
-          <div class="service-card" data-animate>
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M16 9h2a3 3 0 0 1 0 6h-2"/><path d="M8 2v2.5M12 2v2.5"/></svg>
-            </div>
-            <h3 class="service-card__title">Кофе с собой</h3>
-            <p class="service-card__desc">Любая позиция меню в эко-стакане за 3 минуты. Скидка 10% со своей чашкой</p>
-          </div>
-
-          <div class="service-card" data-animate style="--d:.1s">
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M2 19h20"/><path d="M9 9.5h6"/></svg>
-            </div>
-            <h3 class="service-card__title">Уютная зона для работы</h3>
-            <p class="service-card__desc">Быстрый Wi-Fi, розетки у каждого стола и тихий второй зал</p>
-          </div>
-
-          <div class="service-card" data-animate style="--d:.2s">
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M12 14v3M10.5 15.5h3"/></svg>
-            </div>
-            <h3 class="service-card__title">Мероприятия на заказ</h3>
-            <p class="service-card__desc">Каптестинги, дни рождения и утренники под закрытие кофейни</p>
-          </div>
-
-          <div class="service-card" data-animate style="--d:.3s">
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v6h-6"/></svg>
-            </div>
-            <h3 class="service-card__title">Подписка на кофе</h3>
-            <p class="service-card__desc">Свежая обжарка каждую неделю — домой или в офис, по всему Минску</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         6. ОТЗЫВЫ (карусель с автопрокруткой)
-         ============================================================ -->
-    <section class="section reviews" id="reviews">
-      <div class="container">
-        <div class="section__head" data-animate>
-          <span class="section__tag">Отзывы</span>
-          <h2 class="section__title">Гости о нас</h2>
-          <p class="section__subtitle">Тёплые слова, которые греют лучше кофе</p>
-        </div>
-
-        <div class="reviews__carousel" id="reviewsCarousel" data-animate>
-          <!-- Кнопки навигации -->
-          <button class="reviews__btn reviews__btn--prev" id="reviewPrev" type="button" aria-label="Предыдущий отзыв">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>
-          </button>
-          <button class="reviews__btn reviews__btn--next" id="reviewNext" type="button" aria-label="Следующий отзыв">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        <!-- Слайды внутрь #sliderTrack рендерит script.js -->
+        <div
+          class="slider-shell reveal"
+          id="portfolioSlider"
+          role="region"
+          aria-roledescription="карусель"
+          aria-label="Проекты: листайте стрелками, точками или свайпом"
+          tabindex="0"
+        >
+          <button class="slider-arrow slider-arrow--prev" type="button" aria-label="Предыдущий проект">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
           </button>
 
-          <!-- Лента слайдов -->
-          <div class="reviews__track" id="reviewTrack">
-
-            <div class="review-slide">
-              <div class="review-card">
-                <img class="review__avatar" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Фото Анны К.">
-                <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-                <p class="review__text">«Лучший раф в Минске, без преувеличений. Хожу сюда каждое утро уже год — и каждый раз как в гости к друзьям».</p>
-                <p class="review__name">Анна Ковалёва</p>
-                <p class="review__meta">постоянный гость</p>
-              </div>
-            </div>
-
-            <div class="review-slide">
-              <div class="review-card">
-                <img class="review__avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Фото Дмитрия Л.">
-                <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-                <p class="review__text">«Работаю здесь удалённо несколько раз в неделю: тихо, розетки везде, Wi-Fi летает. А фильтр „Эфиопия“ — отдельная любовь».</p>
-                <p class="review__name">Дмитрий Лукашевич</p>
-                <p class="review__meta">фрилансер</p>
-              </div>
-            </div>
-
-            <div class="review-slide">
-              <div class="review-card">
-                <img class="review__avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Фото Марии С.">
-                <div class="review__stars" aria-label="Оценка 4 из 5"><span>★★★★</span><span class="star--off">★</span></div>
-                <p class="review__text">«Заказывали каптестинг на день рождения — восторг у всех! Единственное хотелось бы больше столиков у окна».</p>
-                <p class="review__name">Мария Синяк</p>
-                <p class="review__meta">гость мероприятия</p>
-              </div>
-            </div>
-
-            <div class="review-slide">
-              <div class="review-card">
-                <img class="review__avatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Фото Павла Г.">
-                <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-                <p class="review__text">«Подписка на кофе — лучшее решение года. Зерно всегда свежее, доставка точно в срок, а сюрпризы в виде дрип-пакетов греют».</p>
-                <p class="review__name">Павел Гриневич</p>
-                <p class="review__meta">подписчик</p>
-              </div>
-            </div>
-
-            <div class="review-slide">
-              <div class="review-card">
-                <img class="review__avatar" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Фото Ольги В.">
-                <div class="review__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-                <p class="review__text">«Тирамису и облепиховый чай — идеальная пара для дождливого вечера. Персонал помнит мой заказ ещё до того, как я подойду».</p>
-                <p class="review__name">Ольга Верес</p>
-                <p class="review__meta">постоянный гость</p>
-              </div>
-            </div>
-
+          <div class="slider-viewport">
+            <div class="slider-track" id="sliderTrack"></div>
           </div>
+
+          <button class="slider-arrow slider-arrow--next" type="button" aria-label="Следующий проект">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
         </div>
 
-        <!-- Точки-индикаторы (создаются в JS) -->
-        <div class="reviews__dots" id="reviewDots"></div>
+        <div class="slider-controls reveal">
+          <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Выбрать проект"></div>
+          <p class="slider-hint">Свайпайте на телефоне</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         7. КАК НАС НАЙТИ (карта + адрес)
-         ============================================================ -->
-    <section class="section map-section" id="map">
+    <!-- ================= SERVICES ================= -->
+    <section class="services section" id="services" aria-labelledby="services-title">
       <div class="container">
-        <div class="section__head" data-animate>
-          <span class="section__tag">Как нас найти</span>
-          <h2 class="section__title">В сердце старого города</h2>
+        <div class="section-heading section-heading--stacked reveal">
+          <p class="eyebrow">What I do</p>
+          <h2 id="services-title">Создадим <span>для вас.</span></h2>
         </div>
 
-        <div class="map__grid">
-          <!-- Встроенная карта (placeholder Google Maps) -->
-          <div class="map__frame" data-animate>
-            <iframe
-              src="https://maps.google.com/maps?q=%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%97%D1%8B%D0%B1%D0%B8%D1%86%D0%BA%D0%B0%D1%8F%2C%208&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              title="Карта: кофейня Why knot? в Минске"
-              loading="lazy"
-              allowfullscreen></iframe>
-          </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-number" aria-hidden="true">01</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>Сайт под ключ</h3>
+            <p>
+            Продумываем структуру, собираем интерфейс, программируем
+            функциональность и доводим проект до готового результата.
+            </p>
+            <span class="service-line" aria-hidden="true"></span>
+            <span class="service-label">Разработка</span>
+          </article>
 
-          <!-- Адрес и режим работы -->
-          <div class="map__info" data-animate style="--d:.15s">
-            <div class="map__row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              <div>
-                <h4>Адрес</h4>
-                <p>г. Минск, ул. Зыбицкая, 8<br>вход со стороны двора</p>
-              </div>
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-top">
+              <span class="service-number" aria-hidden="true">02</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
             </div>
-            <div class="map__row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-              <div>
-                <h4>Режим работы</h4>
-                <p>Пн–Пт: 8:00 – 22:00<br>Сб–Вс: 9:00 – 23:00</p>
-              </div>
+            <h3>Интерактив и функциональность</h3>
+            <p>
+              Формы, фильтры, динамические элементы, анимации и другие
+              сценарии, которые делают сайт удобным и живым.
+            </p>
+            <span class="service-line" aria-hidden="true"></span>
+            <span class="service-label">Frontend</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-top">
+              <span class="service-number" aria-hidden="true">03</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
             </div>
-            <div class="map__row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-              <div>
-                <h4>Телефон</h4>
-                <p>+375 (29) 123-45-67</p>
-              </div>
+            <h3>Базы и сервисы</h3>
+            <p>
+            Подключаем Supabase, формы обратной связи, Telegram-ботов
+            и другие внешние сервисы, необходимые проекту.
+            </p>
+            <span class="service-line" aria-hidden="true"></span>
+            <span class="service-label">Supabase · Integrations</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3">
+            <div class="service-top">
+              <span class="service-number" aria-hidden="true">04</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
             </div>
-          </div>
+            <h3>Публикация проекта</h3>
+            <p>
+            Помогаем с доменом, сервером, размещением сайта и всем
+            необходимым, чтобы готовый проект действительно появился в интернете.
+            </p>
+            <span class="service-line" aria-hidden="true"></span>
+            <span class="service-label">Launch</span>
+          </article>
+
+          <article class="service-card service-card--wide reveal">
+            <div class="service-top">
+              <span class="service-number" aria-hidden="true">05</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </div>
+            <h3>Аналитика и присутствие</h3>
+            <p>
+            Подключаем Яндекс Метрику, базовые настройки Google Search Console
+            и помогаем с размещением компании в Яндекс Бизнес и Картах.
+            </p>
+            <span class="service-line" aria-hidden="true"></span>
+            <span class="service-label">Analytics · Maps</span>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         8. КОНТАКТЫ И ФОРМА ЗАЯВКИ
-         ============================================================ -->
-    <section class="section contacts" id="contacts">
-      <div class="container contacts__grid">
-
-        <!-- Форма заявки -->
-        <div class="contacts__form-wrap" data-animate>
-          <span class="section__tag">Контакты</span>
-          <h2 class="section__title section__title--left">Оставить заявку</h2>
-          <p class="section__subtitle section__subtitle--left">Забронировать стол, заказать мероприятие или просто задать вопрос</p>
-
-          <form id="contactForm" class="form" novalidate>
-            <div class="field">
-              <label class="field__label" for="cfName">Имя</label>
-              <input class="field__input" id="cfName" type="text" placeholder="Как к вам обращаться?">
-              <span class="field__error" data-error></span>
-            </div>
-            <div class="field">
-              <label class="field__label" for="cfPhone">Телефон</label>
-              <input class="field__input" id="cfPhone" type="tel" placeholder="+375 (__) ___-__-__">
-              <span class="field__error" data-error></span>
-            </div>
-            <div class="field">
-              <label class="field__label" for="cfComment">Комментарий</label>
-              <textarea class="field__input" id="cfComment" placeholder="Пара слов о вашей заявке…"></textarea>
-              <span class="field__error" data-error></span>
-            </div>
-            <button class="btn btn--gold btn--block" type="submit">Оставить заявку</button>
-          </form>
-        </div>
-
-        <!-- Контактная информация и соцсети -->
-        <div class="contacts__aside" data-animate style="--d:.15s">
-          <h3 class="contacts__aside-title">Мы на связи</h3>
-          <p>Пишите в соцсети — отвечаем быстрее, чем заваривается френч-пресс. Бронируем столы, принимаем заявки на мероприятия и радуем новинками.</p>
-
-          <ul class="contacts__list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
-              hello@whyknot.coffee
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-              +375 (29) 123-45-67
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              Минск, ул. Зыбицкая, 8
-            </li>
-          </ul>
-
-          <!-- Круглые иконки соцсетей -->
-          <div class="socials">
-            <a class="social" href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a class="social" href="#" aria-label="Telegram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </a>
-            <a class="social" href="#" aria-label="VK">
-              <svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="currentColor" font-family="Inter, sans-serif">VK</text></svg>
-            </a>
-          </div>
-        </div>
-
+    <!-- ================= PROCESS ================= -->
+<section class="process section" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="process-layout">
+      <div class="process-heading reveal">
+        <p class="eyebrow">Process</p>
+        <h2 id="process-title">От идеи <span>до запуска.</span></h2>
       </div>
-    </section>
 
-    <!-- ============================================================
-         9. ПОДПИСКА НА РАССЫЛКУ
-         ============================================================ -->
-    <section class="subscribe" id="subscribe">
-      <div class="subscribe__inner" data-animate>
-        <h2 class="subscribe__title">Письма с ароматом кофе</h2>
-        <p class="subscribe__text">Новое меню, секреты обжарки и закрытые дегустации — раз в две недели, без спама</p>
-        <form id="subscribeForm" class="subscribe__form" novalidate>
-          <div class="field field--inline">
-            <input class="subscribe__input" id="subEmail" type="email" placeholder="Ваш email" aria-label="Email для подписки">
-            <span class="field__error subscribe__error" data-error></span>
+      <div class="process-list" id="processList">
+        <span class="process-line" aria-hidden="true"></span>
+
+        <article class="process-item reveal">
+          <div class="process-node" aria-hidden="true">01</div>
+          <div class="process-body">
+            <h3>Задача</h3>
+            <p>Разбираемся, что должен делать сайт и какую задачу бизнеса он решает.</p>
           </div>
-          <button class="btn btn--gold" type="submit">Подписаться</button>
-        </form>
-      </div>
-    </section>
+        </article>
 
+        <article class="process-item reveal reveal-delay-1">
+          <div class="process-node" aria-hidden="true">02</div>
+          <div class="process-body">
+            <h3>Интерфейс</h3>
+            <p>Строим понятную структуру и визуальную подачу, которая работает на пользователя.</p>
+          </div>
+        </article>
+
+        <article class="process-item reveal reveal-delay-2">
+          <div class="process-node" aria-hidden="true">03</div>
+          <div class="process-body">
+            <h3>Разработка</h3>
+            <p>Реализуем адаптивную вёрстку, интерактив и необходимую функциональность.</p>
+          </div>
+        </article>
+
+        <article class="process-item reveal reveal-delay-3">
+          <div class="process-node" aria-hidden="true">04</div>
+          <div class="process-body">
+            <h3>Запуск</h3>
+            <p>Подключаем домен, размещаем проект и проверяем всё на реальных устройствах.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
 
-  <!-- ============================================================
-       11. ФУТЕР
-       ============================================================ -->
-  <footer class="footer">
+  <!-- ================= FOOTER / CONTACTS ================= -->
+  <footer class="site-footer" id="contacts">
     <div class="container">
-      <div class="footer__grid">
-
-        <div class="footer__col">
-          <a href="#hero" class="logo logo--light">Why knot<span>?</span></a>
-          <p class="footer__desc">Кофейня полного цикла в центре Минска: своя обжарка, своя кондитерская и очень тёплые люди за баром.</p>
+      <div class="footer-main">
+        <div class="reveal">
+          <p class="eyebrow">Let’s work together</p>
+          <h2>Есть задача? <span>Давайте обсудим.</span></h2>
         </div>
 
-        <div class="footer__col">
-          <h4 class="footer__title">Разделы</h4>
-          <ul class="footer__list">
-            <li><a href="#hero">Главная</a></li>
-            <li><a href="#menu">Меню</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#reviews">Отзывы</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4 class="footer__title">Контакты</h4>
-          <ul class="footer__list">
-            <li>Минск, ул. Зыбицкая, 8</li>
-            <li>+375 (29) 123-45-67</li>
-            <li>hello@whyknot.coffee</li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h4 class="footer__title">Мы в соцсетях</h4>
-          <div class="socials socials--footer">
-            <a class="social" href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a class="social" href="#" aria-label="Telegram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </a>
-            <a class="social" href="#" aria-label="VK">
-              <svg viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-size="10.5" font-weight="700" fill="currentColor" font-family="Inter, sans-serif">VK</text></svg>
-            </a>
-          </div>
-        </div>
-
+        <nav class="footer-links reveal reveal-delay-1" aria-label="Контакты">
+          <!-- Замени ссылки на свои -->
+          <a href="https://t.me/skiwyyy" target="_blank" rel="noopener noreferrer">
+            Telegram <span aria-hidden="true">↗</span>
+          </a>
+          <button type="button" class="footer-email-btn" data-email="pokolenko.max@gmail.com">
+            Email <span class="footer-email-badge" aria-hidden="true">Скопировать 📋</span>
+          </button>
+          <a href="https://github.com/pokolenkomax-wq" target="_blank" rel="noopener noreferrer">
+            GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
       </div>
 
-      <!-- Нижняя полоса: копирайт + визуальные бейджи доверия -->
-      <div class="footer__bottom">
-        <p>© <span id="year">2026</span> Why knot? · Все права защищены</p>
-        <div class="footer__crm" aria-label="Интеграции (визуальный элемент)">
-          <span class="crm-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            CRM и аналитика подключены
-          </span>
-          <span class="crm-badge"><i></i>AmoCRM</span>
-          <span class="crm-badge"><i></i>Bitrix24</span>
-          <span class="crm-badge"><i></i>Google Analytics</span>
-        </div>
+      <div class="footer-bottom">
+        <span>© 2026 Vidna</span>
+        <span>HTML · CSS · JavaScript · Supabase</span>
       </div>
     </div>
   </footer>
 
-  <!-- ============================================================
-       10. МОДАЛЬНЫЕ ОКНА
-       ============================================================ -->
-
-  <!-- Личный кабинет: авторизация / профиль -->
-  <div class="modal" id="accountModal" role="dialog" aria-modal="true" aria-label="Личный кабинет">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__window">
-      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-
-      <!-- Представление: вход / регистрация -->
-      <div id="authView">
-        <h3 class="modal__title">Личный кабинет</h3>
-        <div class="auth-tabs">
-          <button class="auth-tab auth-tab--active" data-tab="login" type="button">Вход</button>
-          <button class="auth-tab" data-tab="register" type="button">Регистрация</button>
-        </div>
-
-        <form id="loginForm" class="auth-form" novalidate>
-          <div class="field">
-            <label class="field__label" for="loginEmail">Email</label>
-            <input class="field__input" id="loginEmail" type="email" placeholder="you@example.com">
-            <span class="field__error" data-error></span>
-          </div>
-          <div class="field">
-            <label class="field__label" for="loginPassword">Пароль</label>
-            <input class="field__input" id="loginPassword" type="password" placeholder="••••••">
-            <span class="field__error" data-error></span>
-          </div>
-          <button class="btn btn--gold btn--block" type="submit">Войти</button>
-        </form>
-
-        <form id="registerForm" class="auth-form hidden" novalidate>
-          <div class="field">
-            <label class="field__label" for="regName">Имя</label>
-            <input class="field__input" id="regName" type="text" placeholder="Ваше имя">
-            <span class="field__error" data-error></span>
-          </div>
-          <div class="field">
-            <label class="field__label" for="regEmail">Email</label>
-            <input class="field__input" id="regEmail" type="email" placeholder="you@example.com">
-            <span class="field__error" data-error></span>
-          </div>
-          <div class="field">
-            <label class="field__label" for="regPassword">Пароль</label>
-            <input class="field__input" id="regPassword" type="password" placeholder="Минимум 6 символов">
-            <span class="field__error" data-error></span>
-          </div>
-          <button class="btn btn--gold btn--block" type="submit">Создать аккаунт</button>
-        </form>
-      </div>
-
-      <!-- Представление: профиль -->
-      <div id="profileView" class="hidden">
-        <div class="profile__head">
-          <div class="profile__avatar" id="profileInitials">W</div>
-          <div>
-            <h3 class="profile__name" id="profileName">Гость</h3>
-            <p class="profile__email" id="profileEmail">—</p>
-          </div>
-        </div>
-
-        <div class="profile__stats">
-          <span>Сделано заказов:</span>
-          <span class="profile__count" id="ordersCount">0</span>
-        </div>
-
-        <div class="profile__actions">
-          <button class="btn btn--gold" id="openOrderBtn" type="button">Оформить заказ</button>
-          <button class="btn btn--outline" id="logoutBtn" type="button">Выйти</button>
-        </div>
-
-        <h4 class="profile__subtitle">История заказов</h4>
-        <ul class="order-history" id="orderHistory"></ul>
-
-        <div class="profile__favorite">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          <div>
-            <h4>Любимая кофейня</h4>
-            <p>Минск, ул. Зыбицкая, 8 · чаще всего вы заходите к нам по субботам ☕</p>
-          </div>
-        </div>
+  <!-- ================= LIGHTBOX ================= -->
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр скриншота проекта">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" aria-label="Закрыть просмотр">
+        <span aria-hidden="true">×</span>
+      </button>
+      <img id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption">
+        <span id="lightboxTitle"></span>
+        <span class="lightbox-hint">Esc — закрыть</span>
       </div>
     </div>
+  </dialog>
+<!-- Плавающая кнопка Telegram. Замени ссылку на свой аккаунт -->
+<a
+  class="tg-fab"
+  href="https://t.me/skiwyyy"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Написать в студию Vidna в Telegram"
+>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+</a>
+<!-- Всплывающее уведомление о копировании -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    Почта скопирована в буфер обмена!
   </div>
-
-  <!-- Оформление заказа -->
-  <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-label="Оформление заказа">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__window modal__window--wide">
-      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-      <h3 class="modal__title">Оформить заказ</h3>
-      <p class="modal__subtitle">Выберите позиции из меню — количество меняется кнопками «+» и «−»</p>
-
-      <form id="orderForm" novalidate>
-        <div class="order-items" id="orderItems"><!-- позиции генерируются в JS --></div>
-
-        <div class="order-total">
-          <span>Итого:</span>
-          <span id="orderTotal">0.00 BYN</span>
-        </div>
-
-        <!-- Визуальные способы оплаты (заглушка) -->
-        <div class="pay-methods" aria-hidden="true">
-          <span class="pay-method">VISA</span>
-          <span class="pay-method pay-method--mc"><i></i><i></i>Mastercard</span>
-          <span class="pay-method">ЕРИП</span>
-          <span class="pay-method">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18"/><circle cx="17" cy="14.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-            Кошелёк
-          </span>
-        </div>
-        <p class="pay-note">Оплата онлайн появится совсем скоро — пока заказ подтверждает бариста</p>
-
-        <button class="btn btn--gold btn--block" type="submit">Оплатить</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Заглушка «Оплата в разработке» -->
-  <div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-label="Оплата в разработке">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__window modal__window--small">
-      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-      <div class="payment">
-        <div class="payment__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19"/><path d="M6.5 15h4"/></svg>
-        </div>
-        <h3 class="modal__title">Оплата в разработке</h3>
-        <p class="payment__text">Мы уже подключаем онлайн-оплату, а пока ваш заказ принят — оплатите его у бариста или курьеру. Спасибо, что вы с нами!</p>
-        <button class="btn btn--outline" type="button" data-close>Понятно</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Контейнер для уведомлений (toast) -->
-  <div class="toasts" id="toasts" aria-live="polite"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>
