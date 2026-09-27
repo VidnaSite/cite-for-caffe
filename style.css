@@ -24,6 +24,7 @@
    1. ПЕРЕМЕННЫЕ И БАЗОВЫЕ СТИЛИ
    ============================================================ */
 :root {
+  color-scheme: only light;
   /* Тёплая коричнево-золотая палитра */
   --espresso:  #3E2723;  /* тёмный кофе */
   --mocha:     #4A2F24;  /* средний кофе */
@@ -57,12 +58,19 @@
   --ease-out:    cubic-bezier(.16, 1, .3, 1);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  -webkit-tap-highlight-color: transparent;
+}
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 18px);
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color-scheme: only light;
 }
 
 body {
@@ -456,10 +464,7 @@ textarea.field__input {
   letter-spacing: -.02em;
   text-shadow: 0 2px 30px rgba(0, 0, 0, .28);
 }
-.hero__title span,
-.hero__title::after {
-  /* Подчёркивание через ::after не используем, чтобы не ломать layout */
-}
+
 .hero__slogan {
   max-width: 600px;
   margin: 24px auto 42px;
